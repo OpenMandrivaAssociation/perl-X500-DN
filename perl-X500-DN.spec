@@ -1,47 +1,47 @@
+%define module	X500-DN
+%define name	perl-%{module}
+%define version 0.29
+%define release %mkrel 1
+
+Name:		%{name}
+Version:	%{version}
+Release:	%{release}
 Summary:	Parser and formatter for RFC 2253 style DN strings
-Name: 		perl-X500-DN
-Version: 	0.28
-Release:	%mkrel 4
 License: 	Artistic
 Group: 		Development/Perl
-URL:		http://www.cpan.org
-Source:		X500-DN-%{version}.tar.bz2
+Url:            http://search.cpan.org/dist/%{module}
+Source:         http://www.cpan.org/modules/by-module/X500/%{module}-%{version}.tar.gz
 BuildRequires:	perl-devel
 BuildRequires:	perl-Parse-RecDescent
 BuildArch:	noarch
-BuildRoot: 	%{_tmppath}/%{name}-buildroot
+BuildRoot: 	%{_tmppath}/%{name}-%{version}
 
 %description
 This module provides a pure perl parser and formatter for RFC 2253
 style DN strings.
 
 %prep
-
-%setup -n X500-DN-%{version}
+%setup -q -n %{module}-%{version}
 
 %build
 %{__perl} Makefile.PL INSTALLDIRS=vendor
-
 %make
 
 %check
 make test
 
 %install
-[ -n "%{buildroot}" -a "%{buildroot}" != / ] && rm -rf %{buildroot}
-
+rm -rf %{buildroot}
 %makeinstall_std
 
 # cleanup
 rm -f %{buildroot}%{perl_vendorlib}/X500/*.pod
 
 %clean 
-[ -n "%{buildroot}" -a "%{buildroot}" != / ] && rm -rf %{buildroot}
+rm -rf %{buildroot}
 
 %files
-%defattr(644,root,root,755)
-%doc Changes MANIFEST README
-%{perl_vendorlib}/X500/*.pm
+%defattr(-,root,root)
+%doc Changes README
+%{perl_vendorlib}/X500
 %{_mandir}/*/*
-
-
