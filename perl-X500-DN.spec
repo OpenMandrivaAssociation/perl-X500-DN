@@ -14,6 +14,7 @@ Source:         http://www.cpan.org/modules/by-module/X500/%{module}-%{version}.
 BuildRequires:	perl-devel
 BuildRequires:	perl-Parse-RecDescent
 BuildArch:	noarch
+BuildRoot: 	%{_tmppath}/%{name}-%{version}
 
 %description
 This module provides a pure perl parser and formatter for RFC 2253
