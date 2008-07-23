@@ -1,7 +1,7 @@
 %define module	X500-DN
 %define name	perl-%{module}
 %define version 0.29
-%define release %mkrel 1
+%define release %mkrel 3
 
 Name:		%{name}
 Version:	%{version}
