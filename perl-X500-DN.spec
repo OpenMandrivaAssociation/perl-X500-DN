@@ -1,17 +1,15 @@
-%define module	X500-DN
-%define name	perl-%{module}
-%define version 0.29
-%define release %mkrel 3
+%define upstream_name       X500-DN
+%define upstream_version    0.29
 
-Name:		%{name}
-Version:	%{version}
-Release:	%{release}
+Name:       perl-%{upstream_name}
+Version:    %perl_convert_version %{upstream_version}
+Release:    %mkrel 1
 Summary:	Parser and formatter for RFC 2253 style DN strings
 License: 	Artistic
 Group: 		Development/Perl
-Url:            http://search.cpan.org/dist/%{module}
-Source:         http://www.cpan.org/modules/by-module/X500/%{module}-%{version}.tar.gz
-BuildRequires:	perl-devel
+Url:        http://search.cpan.org/dist/%{module}
+Source:     http://www.cpan.org/modules/by-module/Config/%{upstream_name}-%{upstream_version}.tar.gz
+Patch:      X500-DN-0.29-fix-parse-recdescent-version-check.patch
 BuildRequires:	perl-Parse-RecDescent
 BuildArch:	noarch
 BuildRoot: 	%{_tmppath}/%{name}-%{version}
@@ -21,7 +19,8 @@ This module provides a pure perl parser and formatter for RFC 2253
 style DN strings.
 
 %prep
-%setup -q -n %{module}-%{version}
+%setup -q -n %{upstream_name}-%{upstream_version} 
+%patch -p 1
 
 %build
 %{__perl} Makefile.PL INSTALLDIRS=vendor
