@@ -1,0 +1,12 @@
+diff -Naur -x '*~' X500-DN-0.29/DN.pm X500-DN-0.29-fix-parse-recdescent-version-check/DN.pm
+--- X500-DN-0.29/DN.pm	2007-07-08 18:44:38.000000000 +0200
++++ X500-DN-0.29-fix-parse-recdescent-version-check/DN.pm	2009-08-23 13:48:28.000000000 +0200
+@@ -7,7 +7,7 @@
+ use 5.6.1; # the "our" keyword below needs it
+ use strict;
+ use Carp;
+-use Parse::RecDescent 1.80;
++use Parse::RecDescent '1.80';
+ use X500::RDN;
+ 
+ our $VERSION = '0.29';
