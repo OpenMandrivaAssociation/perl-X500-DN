@@ -3,7 +3,7 @@
 
 Name:		perl-%{upstream_name}
 Version:	%perl_convert_version %{upstream_version}
-Release:	4
+Release:	5
 Summary:	Parser and formatter for RFC 2253 style DN strings
 License:	Artistic
 Group:		Development/Perl
