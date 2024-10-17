@@ -7,7 +7,7 @@ Release:	5
 Summary:	Parser and formatter for RFC 2253 style DN strings
 License:	Artistic
 Group:		Development/Perl
-Url:		http://search.cpan.org/dist/%{upstream_name}
+Url:		https://search.cpan.org/dist/%{upstream_name}
 Source:		http://www.cpan.org/modules/by-module/Config/%{upstream_name}-%{upstream_version}.tar.gz
 Patch:		X500-DN-0.29-fix-parse-recdescent-version-check.patch
 
